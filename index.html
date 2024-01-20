@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Clock</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="clock">
+      <div class="marking marking-one"></div>
+      <div class="marking marking-two"></div>
+      <div class="marking marking-three"></div>
+      <div class="marking marking-four"></div>
+      <div class="inner">
+        <div class="clock-items center">AM</div>
+        <div class="clock-items hour" style="--time: 43200s">
+          <div style="--y: 1">00</div>
+          <div style="--y: 2">00</div>
+          <div style="--y: 3">00</div>
+        </div>
+        <div class="clock-items minute" style="--time: 3600s">
+          <div style="--y: 1">00</div>
+          <div style="--y: 2">00</div>
+          <div style="--y: 3">00</div>
+          <div style="--y: 4">00</div>
+        </div>
+        <div class="clock-items second" style="--time: 60s">
+          <div style="--y: 1">00</div>
+          <div style="--y: 2">00</div>
+          <div style="--y: 3">00</div>
+          <div style="--y: 4">00</div>
+          <div style="--y: 5">00</div>
+        </div>
+      </div>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>

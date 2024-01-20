@@ -1,0 +1,149 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  height: 100vh;
+}
+
+body {
+  font-family: sans-serif;
+  font-size: large;
+  height: 100%;
+  min-height: 700px;
+  min-width: 700px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #292829;
+  color: #a1a7af;
+}
+
+.clock {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 700px;
+  width: 700px;
+  min-height: 700px;
+  min-width: 700px;
+  border-radius: 50%;
+  border: 7px solid #282828;
+  box-shadow: -4px -4px 10px rgba(67, 67, 67, 0.5),
+    inset 4px 4px 10px rgba(0, 0, 0, 0.5),
+    inset -4px -4px 10px rgba(67, 67, 67, 0.5), 4px 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+.inner {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  width: 85%;
+  height: 85%;
+  background: #282828;
+  border-radius: 100%;
+  z-index: 1;
+}
+
+.inner::before {
+  content: "";
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: #a1a7af;
+}
+
+.clock::after {
+  transform: rotate(90deg);
+}
+
+.clock::after,
+.clock::before,
+.clock .marking {
+  content: "";
+  transform-origin: center;
+  position: absolute;
+  width: 5px;
+  height: 95%;
+  background: #40f8f9;
+}
+
+.clock .marking {
+  background: #bdbdcb;
+  width: 3px;
+}
+
+.clock .marking.marking-one {
+  transform: rotate(30deg);
+}
+
+.clock .marking.marking-two {
+  transform: rotate(60deg);
+}
+
+.clock .marking.marking-three {
+  transform: rotate(120deg);
+}
+
+.clock .marking.marking-four {
+  transform: rotate(150deg);
+}
+
+.clock-items {
+  transform-origin: center;
+  position: absolute;
+  width: 50px;
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  animation: spin var(--time) steps(60, end) infinite;
+  animation-delay: var(--delay);
+}
+
+.clock-items > div {
+  height: max-content;
+  position: absolute;
+  animation: text-spin var(--time) reverse steps(60, end) infinite;
+  animation-delay: var(--delay);
+}
+
+.hour {
+  font-weight: bolder;
+  color: #ff0201;
+  z-index: 10;
+}
+.minute {
+  font-weight: bolder;
+  color: #08ff08;
+  z-index: 5;
+}
+
+.second {
+  color: #a1a7af;
+}
+
+.center {
+  color: #282828;
+  font-weight: bolder;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes text-spin {
+  from {
+    transform: translateY(calc(var(--y) * -55px)) rotate(5deg);
+  }
+  to {
+    transform: translateY(calc(var(--y) * -55px)) rotate(365deg);
+  }
+}
